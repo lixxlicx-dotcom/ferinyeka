@@ -7,25 +7,26 @@
 <meta property="og:title" content="The Wedding of Ferin &amp; Yeka">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --cream:#f6ecd9;
-  --cream-2:#efe0c4;
-  --gold:#b8863b;
-  --gold-2:#d9b26a;
-  --brown:#5a3a22;
-  --brown-2:#3b2415;
-  --brown-3:#7a5233;
-  --ink:#3b2415;
+  --cream:#f3e5ca;
+  --cream-2:#e7d2ae;
+  --gold:#b88332;
+  --gold-2:#e4c07a;
+  --gold-3:#f7e2b2;
+  --brown:#4a2b16;
+  --brown-2:#2c180b;
+  --brown-3:#683f22;
+  --ink:#2f1b0d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:'Cormorant Garamond',serif;
   color:var(--ink);
-  background:#2a1a10;
+  background:#1c0f06;
   -webkit-font-smoothing:antialiased;
   display:flex;justify-content:center;
 }
@@ -33,128 +34,277 @@ body.locked{overflow:hidden;height:100vh}
 .wrap{
   width:100%;max-width:480px;position:relative;
   background:var(--cream);
-  box-shadow:0 0 60px rgba(0,0,0,.5);
+  box-shadow:0 0 70px rgba(0,0,0,.75);
   overflow:hidden;
 }
 
-/* Pola batik kawung */
+/* Pola batik kawung coklat sogan & emas */
 .batik{
   background-color:var(--brown-2);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23b8863b' stroke-opacity='.32' stroke-width='1.2'%3E%3Cellipse cx='30' cy='15' rx='8' ry='15'/%3E%3Cellipse cx='30' cy='45' rx='8' ry='15'/%3E%3Cellipse cx='15' cy='30' rx='15' ry='8'/%3E%3Cellipse cx='45' cy='30' rx='15' ry='8'/%3E%3Ccircle cx='30' cy='30' r='2' fill='%23b8863b' fill-opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(200,150,62,.16), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23d4a34e' stroke-opacity='.34' stroke-width='1.2'%3E%3Cellipse cx='32' cy='16' rx='8.5' ry='16'/%3E%3Cellipse cx='32' cy='48' rx='8.5' ry='16'/%3E%3Cellipse cx='16' cy='32' rx='16' ry='8.5'/%3E%3Cellipse cx='48' cy='32' rx='16' ry='8.5'/%3E%3Ccircle cx='32' cy='32' r='2.2' fill='%23e4c07a' fill-opacity='.55'/%3E%3C/g%3E%3C/svg%3E");
+  background-position:center 0px;
 }
 .batik-light{
   background-color:var(--cream);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%235a3a22' stroke-opacity='.07' stroke-width='1.2'%3E%3Cellipse cx='30' cy='15' rx='8' ry='15'/%3E%3Cellipse cx='30' cy='45' rx='8' ry='15'/%3E%3Cellipse cx='15' cy='30' rx='15' ry='8'/%3E%3Cellipse cx='45' cy='30' rx='15' ry='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%235a3419' stroke-opacity='.1' stroke-width='1.2'%3E%3Cellipse cx='32' cy='16' rx='8.5' ry='16'/%3E%3Cellipse cx='32' cy='48' rx='8.5' ry='16'/%3E%3Cellipse cx='16' cy='32' rx='16' ry='8.5'/%3E%3Cellipse cx='48' cy='32' rx='16' ry='8.5'/%3E%3Ccircle cx='32' cy='32' r='1.8' fill='%238c5828' fill-opacity='.15'/%3E%3C/g%3E%3C/svg%3E");
+  background-position:center 0px;
 }
 
-/* ===== COVER ===== */
-#cover{
+/* ===== PARTIKEL DEBU EMAS (FLOATING GOLD DUST) ===== */
+.gold-dust{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:5;
+}
+.gold-dust span{
+  position:absolute;bottom:-12px;border-radius:50%;
+  background:radial-gradient(circle, #fff3cf 0%, #e4c07a 45%, transparent 75%);
+  box-shadow:0 0 8px rgba(228,192,122,.8);
+  opacity:0;
+  animation:floatDust linear infinite;
+}
+@keyframes floatDust{
+  0%{transform:translateY(0) translateX(0) scale(.6);opacity:0}
+  15%{opacity:.85}
+  75%{opacity:.65}
+  100%{transform:translateY(-105vh) translateX(var(--drift, 20px)) scale(1.15);opacity:0}
+}
+
+/* ===== EFEK KILAU EMAS (GOLD SHIMMER) ===== */
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{
+  content:"";position:absolute;top:-50%;left:-120%;width:65%;height:200%;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,244,210,.26) 50%,transparent 80%);
+  transform:rotate(18deg);
+  animation:foilSweep 5.5s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes foilSweep{
+  0%,55%{left:-120%}
+  100%{left:165%}
+}
+
+/* ===== INTRO & GUNUNGAN PORTAL ===== */
+#intro-wrapper{
   position:fixed;inset:0;z-index:100;
   display:flex;justify-content:center;
-  background:#2a1a10;
-  transition:transform 1.2s cubic-bezier(.77,0,.18,1), opacity .6s .8s;
+  pointer-events:auto;
 }
-#cover.open{transform:translateY(-100%);opacity:0;pointer-events:none}
-.cover-in{
+#intro-wrapper.done{display:none}
+.intro-box{
   width:100%;max-width:480px;height:100%;
-  position:relative;text-align:center;color:var(--cream);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:30px 24px;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 70px rgba(0,0,0,.8);
 }
-.cover-in::before,.cover-in::after{
-  content:"";position:absolute;left:18px;right:18px;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold-2),transparent);opacity:.7;
+
+/* Layer 1: Cover Foto Awal */
+#cover-front{
+  position:absolute;inset:0;z-index:30;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding:48px 24px 72px;text-align:center;color:var(--cream);
+  background:linear-gradient(180deg,rgba(44,24,11,.3) 0%,rgba(44,24,11,.68) 52%,rgba(28,15,6,.97) 100%);
+  transition:opacity .9s ease, transform 1s cubic-bezier(.4,0,.2,1);
 }
-.cover-in::before{top:18px}
-.cover-in::after{bottom:18px}
-.gunungan{width:min(58vw,250px);filter:drop-shadow(0 10px 25px rgba(0,0,0,.5));animation:sway 6s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.cover-in .small{font-family:'Cinzel',serif;letter-spacing:.35em;font-size:.72rem;color:var(--gold-2);margin-top:22px}
-.cover-in h1{font-family:'Pinyon Script',cursive;font-weight:400;font-size:3.4rem;line-height:1.05;color:#f3deb0;margin:8px 0}
-.cover-in h1 span{display:block;font-size:2rem;color:var(--gold-2)}
-.guest{margin-top:14px;font-size:1rem;opacity:.85}
-.guest b{display:block;font-size:1.25rem;font-weight:600;color:#f3deb0;margin-top:2px}
+#cover-front::before{
+  content:"";position:absolute;inset:14px;
+  border:1px solid rgba(228,192,122,.35);
+  border-radius:180px 180px 18px 18px;
+  pointer-events:none;z-index:2;
+}
+#cover-front .cover-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;
+  filter:brightness(.78) sepia(.28) contrast(1.05);
+  transition:transform 6s ease;
+}
+#cover-front.fade-out{
+  opacity:0;transform:scale(1.08);pointer-events:none;
+}
+#cover-front .small{
+  font-family:'Cinzel',serif;letter-spacing:.34em;font-size:.75rem;color:var(--gold-2);
+  text-shadow:0 2px 10px rgba(0,0,0,.75);
+}
+#cover-front h1{
+  font-family:'Pinyon Script',cursive;font-weight:400;font-size:3.9rem;line-height:1.05;
+  color:var(--gold-3);margin:8px 0 12px;text-shadow:0 4px 18px rgba(0,0,0,.75);
+}
+#cover-front h1 span{font-size:2.4rem;color:var(--gold-2);margin:0 6px}
+.guest{margin-top:6px;font-size:1.05rem;opacity:.92}
+.guest b{display:block;font-size:1.3rem;font-weight:600;color:#fff7e3;margin-top:2px}
+
 .btn{
   display:inline-flex;align-items:center;gap:10px;
-  font-family:'Cinzel',serif;letter-spacing:.14em;font-size:.78rem;
-  padding:13px 26px;border-radius:40px;border:1px solid var(--gold-2);
-  background:linear-gradient(135deg,var(--gold) 0%,#8d6226 100%);
-  color:#fff7e3;cursor:pointer;margin-top:24px;
-  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  font-family:'Cinzel',serif;letter-spacing:.15em;font-size:.78rem;font-weight:600;
+  padding:13px 28px;border-radius:40px;border:1px solid var(--gold-3);
+  background:linear-gradient(135deg,#c9943c 0%,#7b4e1d 55%,#533110 100%);
+  color:#fff8e6;cursor:pointer;margin-top:24px;
+  box-shadow:0 8px 24px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,243,207,.4);
   transition:transform .2s, box-shadow .2s;
 }
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:scale(.97)}
 .btn.sm{padding:10px 18px;font-size:.7rem;margin-top:0}
 
-/* ===== HERO ===== */
-section{position:relative;padding:70px 28px;text-align:center}
+/* Layer 2: Stage Gunungan Portal */
+#gunungan-stage{
+  position:absolute;inset:0;z-index:20;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;
+  transition:opacity .8s ease;
+}
+#gunungan-stage.active{opacity:1}
+
+/* Ornamen sudut latar batik terang */
+.corner-orn{
+  position:absolute;width:140px;opacity:.45;pointer-events:none;color:#8c5822;
+}
+.corner-orn.tl{top:-8px;left:-8px}
+.corner-orn.br{bottom:-8px;right:-8px;transform:rotate(180deg)}
+
+/* Container SVG Gunungan */
+.portal-wrap{
+  width:min(76vw,330px);
+  position:relative;z-index:6;
+  transform:scale(.82);
+  transform-origin:50% 48%;
+  transition:transform 1.1s cubic-bezier(.22,1,.36,1);
+  filter:drop-shadow(0 18px 36px rgba(44,24,11,.42));
+}
+#gunungan-stage.active .portal-wrap{
+  transform:scale(1);
+}
+#gunungan-stage.zoom-in .portal-wrap{
+  transform:scale(4.6);
+  transition:transform 1.6s cubic-bezier(.65,0,.35,1);
+}
+#gunungan-stage.fade-done{
+  opacity:0;
+  transition:opacity .7s ease;
+}
+
+/* Belahan Pintu Gunungan Kiri & Kanan */
+#door-left, #door-right{
+  transition:transform 1.5s cubic-bezier(.65,0,.35,1);
+}
+#gunungan-stage.split #door-left{
+  transform:translateX(-92px);
+}
+#gunungan-stage.split #door-right{
+  transform:translateX(92px);
+}
+
+/* ===== HERO & STAGGERED TEXT REVEAL ===== */
+section{position:relative;padding:72px 28px;text-align:center}
 #hero{
   min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
   color:var(--cream);overflow:hidden;
+  background-color:var(--brown-2);
 }
+#hero .hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.22;filter:sepia(.45) contrast(1.08);
+  transform:scale(1.1);
+  transition:transform 4.5s ease;
+}
+#hero.entered .hero-bg{transform:scale(1)}
 #hero::before{
   content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 40%,rgba(184,134,59,.28),transparent 65%);
+  background:radial-gradient(ellipse at 50% 45%,rgba(200,150,62,.34),rgba(36,20,9,.9) 76%);
+  z-index:1;
 }
 .frame{
-  position:relative;width:100%;max-width:340px;
-  padding:48px 22px 44px;
+  position:relative;z-index:6;width:100%;max-width:345px;
+  padding:56px 22px 50px;
   border:1.5px solid var(--gold-2);
-  border-radius:170px 170px 24px 24px;
-  background:rgba(42,26,16,.55);
+  border-radius:175px;
+  background:linear-gradient(180deg,rgba(56,32,16,.72),rgba(34,18,8,.84));
+  backdrop-filter:blur(4px);
+  box-shadow:0 22px 55px rgba(0,0,0,.55), inset 0 0 24px rgba(200,150,62,.15);
+  opacity:0;transform:scale(.94);
+  transition:opacity 1.1s ease, transform 1.1s ease;
 }
+#hero.entered .frame{opacity:1;transform:scale(1)}
 .frame::before{
-  content:"";position:absolute;inset:8px;border:1px solid rgba(217,178,106,.45);
-  border-radius:162px 162px 18px 18px;pointer-events:none;
+  content:"";position:absolute;inset:8px;border:1px solid rgba(228,192,122,.5);
+  border-radius:167px;pointer-events:none;
 }
-.eyebrow{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.72rem;color:var(--gold-2)}
-.names{font-family:'Pinyon Script',cursive;font-size:4.2rem;line-height:1.02;color:#f3deb0;margin:18px 0 10px}
+
+/* Teks muncul bertahap (Staggered) */
+.stagger{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .95s ease, transform .95s ease;
+}
+#hero.entered .stagger.s1{opacity:1;transform:none;transition-delay:.25s}
+#hero.entered .stagger.s2{opacity:1;transform:none;transition-delay:.55s}
+#hero.entered .stagger.s3{opacity:1;transform:none;transition-delay:.85s}
+#hero.entered .stagger.s4{opacity:1;transform:none;transition-delay:1.15s}
+
+.eyebrow{font-family:'Cinzel',serif;letter-spacing:.32em;font-size:.72rem;color:var(--gold-2)}
+.names{font-family:'Pinyon Script',cursive;font-size:4.2rem;line-height:1.02;color:var(--gold-3);margin:18px 0 10px;text-shadow:0 3px 14px rgba(0,0,0,.45)}
 .names .amp{display:block;font-size:2.2rem;color:var(--gold-2);margin:-4px 0}
-.salam{font-style:italic;font-size:1.15rem;opacity:.9;margin-top:6px}
-.scroll-hint{margin-top:28px;font-size:.7rem;letter-spacing:.3em;font-family:'Cinzel',serif;color:var(--gold-2);animation:blink 2s infinite}
+.salam{font-style:italic;font-size:1.18rem;color:#f5e6c8;opacity:.92;margin-top:8px;line-height:1.55}
+.scroll-hint{position:relative;z-index:6;margin-top:30px;font-size:.7rem;letter-spacing:.3em;font-family:'Cinzel',serif;color:var(--gold-2);animation:blink 2s infinite}
 @keyframes blink{50%{opacity:.35}}
 
-/* ===== TEKS ===== */
-h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.8rem;color:var(--brown);margin-bottom:10px}
-.kicker{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.7rem;color:var(--gold);margin-bottom:6px}
-p{font-size:1.15rem;line-height:1.7}
+/* ===== TEKS & ORNAMEN ===== */
+h2{font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.9rem;color:var(--brown);margin-bottom:10px}
+.kicker{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.7rem;font-weight:600;color:#996622;margin-bottom:6px}
+p{font-size:1.16rem;line-height:1.72}
 .orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto;color:var(--gold)}
-.orn::before,.orn::after{content:"";height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn::before,.orn::after{content:"";height:1px;width:74px;background:linear-gradient(90deg,transparent,var(--gold))}
 .orn::after{transform:scaleX(-1)}
 .orn svg{width:20px;height:20px}
 .card{
   position:relative;
-  background:linear-gradient(160deg,#fbf3e2,#f0e0c0);
+  background:linear-gradient(160deg,#fbf2df,#ebd7b2);
   border:1.5px solid var(--gold);
-  border-radius:22px;padding:34px 24px;
-  box-shadow:0 14px 34px rgba(59,36,21,.22), inset 0 0 0 6px rgba(246,236,217,.7), inset 0 0 0 7px rgba(184,134,59,.4);
+  border-radius:22px;padding:36px 24px;
+  box-shadow:0 16px 38px rgba(36,20,9,.38), inset 0 0 0 6px rgba(246,236,217,.75), inset 0 0 0 7px rgba(184,131,50,.48);
 }
 
-/* ===== FOTO ===== */
+/* ===== FOTO MEMPELAI ===== */
 #couple{background:var(--cream)}
 .photo{
   width:min(78%,300px);aspect-ratio:3/4;margin:26px auto 8px;
-  border-radius:200px 200px 16px 16px;overflow:hidden;position:relative;
+  border-radius:200px 200px 18px 18px;overflow:hidden;position:relative;
   border:3px solid var(--gold);
-  box-shadow:0 0 0 8px var(--cream),0 0 0 9px var(--gold-2),0 18px 40px rgba(59,36,21,.35);
+  box-shadow:0 0 0 8px var(--cream),0 0 0 9px var(--gold-2),0 20px 42px rgba(44,24,11,.38);
   background:var(--brown-3);
 }
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.12)}
 .photo .ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;
   color:var(--cream-2);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;padding:20px}
 .photo.empty .ph{display:flex}
 .photo.empty img{display:none}
-.couple-names{font-family:'Pinyon Script',cursive;font-size:2.9rem;color:var(--brown);margin-top:22px;line-height:1.1}
+.couple-names{font-family:'Pinyon Script',cursive;font-size:3rem;color:var(--brown);margin-top:22px;line-height:1.1}
 .couple-names i{display:block;font-size:1.8rem;color:var(--gold)}
 
-/* ===== WAKTU & ALAMAT ===== */
-.when{margin:6px 0 22px;padding-bottom:20px;border-bottom:1px solid rgba(184,134,59,.5)}
-.when .lbl{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.72rem;color:var(--gold)}
-.when .tgl{font-family:'Cinzel',serif;font-size:3.4rem;font-weight:600;color:var(--brown);line-height:1.1}
-.when .jam{font-size:1.3rem;margin-top:6px;color:var(--ink)}
-.addr{font-size:1.3rem;line-height:1.75;color:var(--ink)}
-.addr strong{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.06em;font-size:1.1rem;color:var(--brown)}
+/* ===== WAKTU, COUNTDOWN & ALAMAT ===== */
+.when{margin:6px 0 22px;padding-bottom:20px;border-bottom:1px solid rgba(184,131,50,.48)}
+.when .lbl{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.72rem;color:#996622}
+.when .tgl{font-family:'Cinzel',serif;font-size:3.4rem;font-weight:700;color:var(--brown);line-height:1.1}
+.when .jam{font-size:1.3rem;margin-top:4px;color:var(--ink)}
+
+/* Live Countdown */
+.countdown{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  margin:18px 0 4px;
+}
+.cd-box{
+  background:linear-gradient(180deg,#4a2b16,#2c180b);
+  border:1px solid var(--gold-2);
+  border-radius:12px;padding:10px 4px;
+  color:var(--gold-3);
+  box-shadow:0 6px 14px rgba(44,24,11,.22);
+}
+.cd-box span{
+  display:block;font-family:'Cinzel',serif;font-size:1.35rem;font-weight:700;line-height:1.15;
+}
+.cd-box small{
+  display:block;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.14em;color:var(--gold-2);margin-top:3px;
+}
+
+.addr{font-size:1.28rem;line-height:1.75;color:var(--ink)}
+.addr strong{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.06em;font-size:1.08rem;color:var(--brown)}
 .pin{width:46px;height:46px;margin:0 auto 14px;color:var(--gold)}
 
 /* ===== GIFT ===== */
@@ -162,19 +312,19 @@ p{font-size:1.15rem;line-height:1.7}
 .bank{
   position:relative;text-align:left;margin:22px 0 0;
   padding:22px 22px 20px;border-radius:18px;color:#f7e9c8;overflow:hidden;
-  background:linear-gradient(135deg,#6b4429 0%,#3b2415 100%);
-  border:1px solid var(--gold-2);
-  box-shadow:0 14px 30px rgba(59,36,21,.4);
+  background:linear-gradient(135deg,#5a3419 0%,#2c180b 100%);
+  border:1.5px solid var(--gold-2);
+  box-shadow:0 16px 34px rgba(36,20,9,.45);
 }
-.bank::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;
-  border:1px solid rgba(217,178,106,.35);box-shadow:0 0 0 18px rgba(217,178,106,.08)}
-.bank .logo{font-family:'Cinzel',serif;font-weight:600;font-size:1.5rem;letter-spacing:.12em;color:var(--gold-2)}
-.bank .chip{width:38px;height:28px;border-radius:6px;background:linear-gradient(135deg,#e6c07a,#a8782e);margin:16px 0 10px}
-.bank .no{font-family:'Cinzel',serif;font-size:1.45rem;letter-spacing:.14em;color:#fff3d6}
-.bank .an{margin-top:6px;font-family:'Cinzel',serif;letter-spacing:.08em;font-size:.95rem;opacity:.9}
+.bank::before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;
+  border:1px solid rgba(228,192,122,.35);box-shadow:0 0 0 18px rgba(228,192,122,.08)}
+.bank .logo{font-family:'Cinzel',serif;font-weight:700;font-size:1.5rem;letter-spacing:.12em;color:var(--gold-2)}
+.bank .chip{width:38px;height:28px;border-radius:6px;background:linear-gradient(135deg,#f3deb0,#a87428);margin:16px 0 10px}
+.bank .no{font-family:'Cinzel',serif;font-size:1.45rem;letter-spacing:.14em;color:#fff4d8}
+.bank .an{margin-top:6px;font-family:'Cinzel',serif;letter-spacing:.08em;font-size:.95rem;opacity:.92}
 .bank .row{display:flex;justify-content:flex-end;margin-top:12px}
-.bank .btn{margin:0;padding:9px 16px;font-size:.68rem;background:rgba(247,233,200,.12);box-shadow:none;position:relative;z-index:1}
-.send{margin-top:20px;font-size:1.05rem}
+.bank .btn{margin:0;padding:9px 16px;font-size:.68rem;background:rgba(247,233,200,.14);box-shadow:none;position:relative;z-index:1}
+.send{margin-top:20px;font-size:1.06rem}
 .send b{font-family:'Cinzel',serif;letter-spacing:.06em;color:var(--brown)}
 
 /* ===== UCAPAN ===== */
@@ -183,97 +333,174 @@ form{display:grid;gap:12px;margin-top:20px;text-align:left}
 input,textarea,select{
   width:100%;font-family:inherit;font-size:1.1rem;color:var(--ink);
   padding:13px 15px;border-radius:12px;border:1px solid var(--gold);
-  background:#fffaf0;outline:none;
+  background:#fdf7ea;outline:none;
 }
-input:focus,textarea:focus,select:focus{border-color:var(--brown);box-shadow:0 0 0 3px rgba(184,134,59,.25)}
+input:focus,textarea:focus,select:focus{border-color:var(--brown);box-shadow:0 0 0 3px rgba(184,131,50,.28)}
 textarea{min-height:96px;resize:vertical}
 form .btn{width:100%;justify-content:center;margin-top:4px}
 #wishes{margin-top:26px;display:grid;gap:12px;text-align:left;max-height:340px;overflow:auto;padding-right:4px}
-.wish{background:#fffaf0;border:1px solid rgba(184,134,59,.5);border-left:4px solid var(--gold);border-radius:12px;padding:12px 14px}
+.wish{background:#fdf7ea;border:1px solid rgba(184,131,50,.55);border-left:4px solid var(--gold);border-radius:12px;padding:12px 14px}
 .wish b{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.08em;color:var(--brown)}
 .wish small{float:right;color:var(--brown-3);font-size:.85rem}
 .wish p{font-size:1.05rem;line-height:1.5;margin-top:4px}
 
 /* ===== PENUTUP ===== */
-footer{color:var(--cream);padding:70px 28px 90px;text-align:center}
+footer{color:var(--cream);padding:72px 28px 92px;text-align:center}
 footer .names{font-size:3.6rem;margin-top:10px}
-footer p{opacity:.9}
+footer p{opacity:.92}
 
 /* ===== MUSIK ===== */
 #music{
   position:fixed;right:max(14px,calc(50% - 226px));bottom:18px;z-index:50;
   width:46px;height:46px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),#7a5226);border:1px solid var(--gold-2);
-  color:#fff7e3;display:none;align-items:center;justify-content:center;cursor:pointer;
-  box-shadow:0 6px 16px rgba(0,0,0,.4);
+  background:linear-gradient(135deg,#c9943c,#533110);border:1px solid var(--gold-3);
+  color:#fff8e6;display:none;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,.5);
 }
 #music.show{display:flex}
 #music svg{width:22px;height:22px}
 #music.on{animation:spin 6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ===== ANIMASI ===== */
+/* ===== ANIMASI SCROLL ===== */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.15s}.d2{transition-delay:.3s}.d3{transition-delay:.45s}
 
-.toast{position:fixed;left:50%;bottom:80px;transform:translate(-50%,20px);background:var(--brown-2);color:var(--cream);
-  padding:10px 20px;border-radius:30px;font-size:1rem;opacity:0;pointer-events:none;transition:.3s;z-index:200;border:1px solid var(--gold-2)}
+.toast{position:fixed;left:50%;bottom:80px;transform:translate(-50%,20px);background:var(--brown-2);color:var(--gold-3);
+  padding:10px 22px;border-radius:30px;font-size:1rem;opacity:0;pointer-events:none;transition:.3s;z-index:200;border:1px solid var(--gold-2)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body class="locked">
 
-<!-- COVER -->
-<div id="cover">
-  <div class="cover-in batik">
-    <svg class="gunungan" viewBox="0 0 200 260" aria-hidden="true">
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#e6c07a"/><stop offset="1" stop-color="#9a6c28"/>
-        </linearGradient>
-        <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#6b4429"/><stop offset="1" stop-color="#3b2415"/>
-        </linearGradient>
-      </defs>
-      <path d="M100 6 C112 40 150 70 176 130 C190 165 186 210 170 238 C160 252 40 252 30 238 C14 210 10 165 24 130 C50 70 88 40 100 6Z" fill="url(#g1)"/>
-      <path d="M100 22 C110 52 142 78 164 132 C176 164 172 204 158 228 C150 238 50 238 42 228 C28 204 24 164 36 132 C58 78 90 52 100 22Z" fill="url(#g2)"/>
-      <g fill="none" stroke="#d9b26a" stroke-width="1.6" stroke-linecap="round">
-        <path d="M100 52 V210"/>
-        <path d="M100 90 C80 84 70 96 74 108 M100 90 C120 84 130 96 126 108"/>
-        <path d="M100 124 C74 116 58 134 66 150 M100 124 C126 116 142 134 134 150"/>
-        <path d="M100 160 C78 154 64 172 72 188 M100 160 C122 154 136 172 128 188"/>
-        <circle cx="100" cy="60" r="6" fill="#d9b26a"/>
-        <path d="M72 238 V206 Q72 190 100 190 Q128 190 128 206 V238"/>
-        <path d="M82 238 V210 Q82 200 100 200 Q118 200 118 210 V238" stroke-opacity=".6"/>
-        <path d="M44 150 q10 -14 22 -6 M156 150 q-10 -14 -22 -6" stroke-opacity=".8"/>
-        <circle cx="52" cy="190" r="4"/><circle cx="148" cy="190" r="4"/>
-      </g>
-    </svg>
-    <div class="small">UNDANGAN PERNIKAHAN</div>
-    <h1>Ferin<span>&amp;</span>Yeka</h1>
-    <div class="guest">Kepada Yth. Bapak/Ibu/Saudara/i<b id="guestName">Tamu Undangan</b></div>
-    <button class="btn" id="openBtn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l2-2h14l2 2"/></svg>
-      BUKA UNDANGAN
-    </button>
+<!-- INTRO SEQUENCE (COVER FOTO -> GUNUNGAN MEMBELAH -> ZOOM IN) -->
+<div id="intro-wrapper">
+  <div class="intro-box">
+    
+    <!-- Tahap 1: Cover Foto Awal -->
+    <div id="cover-front">
+      <div class="gold-dust" data-dust="18"></div>
+      <img class="cover-bg" src="foto.jpg" alt="" onerror="this.style.display='none'">
+      <div class="small">THE WEDDING OF</div>
+      <h1>Ferin<span>&amp;</span>Yeka</h1>
+      <div class="guest">Kepada Yth. Bapak/Ibu/Saudara/i<b id="guestName">Tamu Undangan</b></div>
+      <button class="btn shimmer" id="openBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l2-2h14l2 2"/></svg>
+        BUKA UNDANGAN
+      </button>
+    </div>
+
+    <!-- Tahap 2: Portal Gunungan Membelah & Zoom -->
+    <div id="gunungan-stage" class="batik-light">
+      <div class="gold-dust" data-dust="22"></div>
+      <!-- Ornamen sudut -->
+      <svg class="corner-orn tl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M0 40 Q35 40 40 0 M0 70 Q65 65 70 0 M15 15 C30 25 25 45 10 55 M45 10 C55 25 75 30 85 15"/>
+        <circle cx="28" cy="28" r="3" fill="currentColor"/>
+      </svg>
+      <svg class="corner-orn br" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M0 40 Q35 40 40 0 M0 70 Q65 65 70 0 M15 15 C30 25 25 45 10 55 M45 10 C55 25 75 30 85 15"/>
+        <circle cx="28" cy="28" r="3" fill="currentColor"/>
+      </svg>
+
+      <div class="portal-wrap">
+        <svg viewBox="0 0 200 260" aria-hidden="true">
+          <defs>
+            <linearGradient id="gBorder" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f7e2b2"/>
+              <stop offset=".5" stop-color="#c8963e"/>
+              <stop offset="1" stop-color="#784b18"/>
+            </linearGradient>
+            <linearGradient id="gDoor" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4a2b16"/>
+              <stop offset="1" stop-color="#241308"/>
+            </linearGradient>
+            <linearGradient id="gPortalScene" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2c180b"/>
+              <stop offset=".55" stop-color="#5a3419"/>
+              <stop offset="1" stop-color="#b88332"/>
+            </linearGradient>
+            <clipPath id="gunungan-hole">
+              <path d="M100 22 C110 52 142 78 164 132 C176 164 172 204 158 228 C150 238 50 238 42 228 C28 204 24 164 36 132 C58 78 90 52 100 22Z"/>
+            </clipPath>
+            <clipPath id="half-left">
+              <rect x="0" y="0" width="100" height="260"/>
+            </clipPath>
+            <clipPath id="half-right">
+              <rect x="100" y="0" width="100" height="260"/>
+            </clipPath>
+          </defs>
+
+          <!-- Bingkai Luar Gunungan -->
+          <path d="M100 4 C113 39 152 69 178 130 C192 166 188 212 172 240 C161 254 39 254 28 240 C12 212 8 166 22 130 C48 69 87 39 100 4Z" fill="url(#gBorder)"/>
+          <path d="M100 13 C111 45 147 73 171 131 C184 165 180 208 165 234 C155 246 45 246 35 234 C20 208 16 165 29 131 C53 73 89 45 100 13Z" fill="#f3e5ca" opacity=".68"/>
+
+          <!-- Isi di Balik Gunungan -->
+          <g clip-path="url(#gunungan-hole)">
+            <rect x="0" y="0" width="200" height="260" fill="url(#gPortalScene)"/>
+            <circle cx="100" cy="115" r="55" fill="#f7e2b2" opacity=".24"/>
+            <path d="M20 185 Q65 140 105 175 T190 165 L190 250 L20 250 Z" fill="#241308" opacity=".6"/>
+            <path d="M15 205 Q75 170 130 195 T195 185 L195 250 L15 250 Z" fill="#180c04" opacity=".8"/>
+            <text x="100" y="132" text-anchor="middle" fill="#f7e2b2" font-family="Pinyon Script, cursive" font-size="22">Ferin &amp; Yeka</text>
+
+            <!-- Pintu Gunungan Kiri -->
+            <g id="door-left" clip-path="url(#half-left)">
+              <rect x="0" y="0" width="200" height="260" fill="url(#gDoor)"/>
+              <g fill="none" stroke="#e4c07a" stroke-width="1.6" stroke-linecap="round">
+                <path d="M100 52 V210"/>
+                <path d="M100 90 C80 84 70 96 74 108"/>
+                <path d="M100 124 C74 116 58 134 66 150"/>
+                <path d="M100 160 C78 154 64 172 72 188"/>
+                <circle cx="100" cy="60" r="6" fill="#e4c07a"/>
+                <path d="M72 238 V206 Q72 190 100 190"/>
+                <path d="M82 238 V210 Q82 200 100 200" stroke-opacity=".6"/>
+                <path d="M44 150 q10 -14 22 -6" stroke-opacity=".8"/>
+                <circle cx="52" cy="190" r="4"/>
+              </g>
+            </g>
+
+            <!-- Pintu Gunungan Kanan -->
+            <g id="door-right" clip-path="url(#half-right)">
+              <rect x="0" y="0" width="200" height="260" fill="url(#gDoor)"/>
+              <g fill="none" stroke="#e4c07a" stroke-width="1.6" stroke-linecap="round">
+                <path d="M100 52 V210"/>
+                <path d="M100 90 C120 84 130 96 126 108"/>
+                <path d="M100 124 C126 116 142 134 134 150"/>
+                <path d="M100 160 C122 154 136 172 128 188"/>
+                <circle cx="100" cy="60" r="6" fill="#e4c07a"/>
+                <path d="M128 238 V206 Q128 190 100 190"/>
+                <path d="M118 238 V210 Q118 200 100 200" stroke-opacity=".6"/>
+                <path d="M156 150 q-10 -14 -22 -6" stroke-opacity=".8"/>
+                <circle cx="148" cy="190" r="4"/>
+              </g>
+            </g>
+          </g>
+
+          <path d="M100 22 C110 52 142 78 164 132 C176 164 172 204 158 228 C150 238 50 238 42 228 C28 204 24 164 36 132 C58 78 90 52 100 22Z" fill="none" stroke="#784b18" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <main class="wrap">
 
   <!-- HERO -->
-  <section id="hero" class="batik">
-    <div class="frame rv">
-      <div class="eyebrow">THE WEDDING OF</div>
-      <div class="names">Ferin<span class="amp">&amp;</span>Yeka</div>
-      <div class="salam">Sugeng Rawuh<br>Rahayu Kang Sami Pinanggih</div>
+  <section id="hero" class="batik parallax-bg">
+    <div class="gold-dust" data-dust="24"></div>
+    <img class="hero-bg" src="foto.jpg" alt="" onerror="this.style.display='none'">
+    <div class="frame shimmer">
+      <div class="eyebrow stagger s1">THE WEDDING OF</div>
+      <div class="names stagger s2">Ferin<span class="amp">&amp;</span>Yeka</div>
+      <div class="salam stagger s3">Sugeng Rawuh<br>Rahayu Kang Sami Pinanggih</div>
     </div>
-    <div class="scroll-hint rv d2">GULIR KE BAWAH ↓</div>
+    <div class="scroll-hint stagger s4">GULIR KE BAWAH ↓</div>
   </section>
 
   <!-- PEMBUKA -->
-  <section class="batik-light">
+  <section class="batik-light parallax-bg">
     <div class="kicker rv">KANGGE SAMI</div>
     <h2 class="rv d1">Undangan Pernikahan</h2>
     <div class="orn rv"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg></div>
@@ -294,7 +521,7 @@ footer p{opacity:.9}
   </section>
 
   <!-- WAKTU & ALAMAT -->
-  <section id="alamat" class="batik">
+  <section id="alamat" class="batik parallax-bg">
     <div class="card rv">
       <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
       <div class="kicker">ACARA PERNIKAHAN</div>
@@ -303,6 +530,14 @@ footer p{opacity:.9}
         <div class="lbl">TANGGAL</div>
         <div class="tgl">27</div>
         <div class="jam">Pukul 07.00 WIB</div>
+
+        <!-- Live Countdown -->
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><span id="cd-d">00</span><small>HARI</small></div>
+          <div class="cd-box"><span id="cd-h">00</span><small>JAM</small></div>
+          <div class="cd-box"><span id="cd-m">00</span><small>MENIT</small></div>
+          <div class="cd-box"><span id="cd-s">00</span><small>DETIK</small></div>
+        </div>
       </div>
       <p class="addr">
         <strong>JL. SEKRAPYAK NO. 14</strong><br>
@@ -310,7 +545,7 @@ footer p{opacity:.9}
         Kelurahan Blitar, Kecamatan Sukorejo<br>
         Kota Blitar
       </p>
-      <a class="btn" style="text-decoration:none" target="_blank" rel="noopener"
+      <a class="btn shimmer" style="text-decoration:none" target="_blank" rel="noopener"
          href="https://www.google.com/maps/search/?api=1&query=Jl.+Sekrapyak+No.+14+Sukorejo+Blitar+Kota+Blitar">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
         LIHAT PETA
@@ -324,7 +559,7 @@ footer p{opacity:.9}
     <h2 class="rv d1">Tanda Kasih</h2>
     <p class="rv d1">Doa restu Anda adalah hadiah terindah bagi kami. Namun bila ingin memberikan tanda kasih, dapat melalui rekening di bawah ini:</p>
 
-    <div class="bank rv d2">
+    <div class="bank shimmer rv d2">
       <div class="logo">BNI</div>
       <div class="chip"></div>
       <div class="no" id="rek">1783214072</div>
@@ -339,7 +574,7 @@ footer p{opacity:.9}
   </section>
 
   <!-- UCAPAN -->
-  <section id="rsvp" class="batik-light">
+  <section id="rsvp" class="batik-light parallax-bg">
     <div class="kicker rv">DOA &amp; UCAPAN</div>
     <h2 class="rv d1">Ucapan Selamat</h2>
     <form id="wishForm" class="rv d2">
@@ -351,16 +586,16 @@ footer p{opacity:.9}
         <option>Tidak Hadir</option>
         <option>Masih Ragu</option>
       </select>
-      <button class="btn" type="submit">KIRIM</button>
+      <button class="btn shimmer" type="submit">KIRIM</button>
     </form>
     <div id="wishes"></div>
   </section>
 
   <!-- PENUTUP -->
-  <footer class="batik">
+  <footer class="batik parallax-bg">
     <div class="kicker rv" style="color:var(--gold-2)">TERIMA KASIH</div>
     <p class="rv d1">Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan memberikan doa restu.</p>
-    <div class="names rv d2" style="color:#f3deb0">Ferin <span class="amp" style="display:inline;font-size:2rem">&amp;</span> Yeka</div>
+    <div class="names rv d2" style="color:var(--gold-3)">Ferin <span class="amp" style="display:inline;font-size:2rem">&amp;</span> Yeka</div>
     <p class="rv d3" style="font-style:italic;color:var(--gold-2)">Matur nuwun</p>
   </footer>
 </main>
@@ -372,10 +607,71 @@ footer p{opacity:.9}
 <div class="toast" id="toast"></div>
 
 <script>
-/* Nama tamu dari link: ?to=Nama+Tamu */
+/* 1. Nama tamu dari link: ?to=Nama+Tamu */
 (function(){
   var to = new URLSearchParams(location.search).get('to');
   if(to) document.getElementById('guestName').textContent = to;
+})();
+
+/* 2. Generator Partikel Debu Emas */
+(function(){
+  document.querySelectorAll('.gold-dust').forEach(function(box){
+    var count = parseInt(box.getAttribute('data-dust') || '16', 10);
+    for(var i = 0; i < count; i++){
+      var sp = document.createElement('span');
+      var size = (Math.random() * 4 + 2).toFixed(1) + 'px';
+      sp.style.width = size;
+      sp.style.height = size;
+      sp.style.left = (Math.random() * 100).toFixed(1) + '%';
+      sp.style.setProperty('--drift', ((Math.random() - 0.5) * 60).toFixed(0) + 'px');
+      sp.style.animationDuration = (Math.random() * 6 + 6).toFixed(1) + 's';
+      sp.style.animationDelay = (Math.random() * 6).toFixed(1) + 's';
+      box.appendChild(sp);
+    }
+  });
+})();
+
+/* 3. Efek Paralaks Halus pada Latar Batik */
+window.addEventListener('scroll', function(){
+  var y = window.scrollY;
+  document.querySelectorAll('.parallax-bg').forEach(function(el){
+    var rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight && rect.bottom > 0){
+      el.style.backgroundPosition = 'center ' + (rect.top * 0.22).toFixed(1) + 'px';
+    }
+  });
+  var heroBg = document.querySelector('#hero .hero-bg');
+  if(heroBg && y < window.innerHeight){
+    heroBg.style.transform = 'translateY(' + (y * 0.25).toFixed(1) + 'px) scale(1.04)';
+  }
+}, {passive: true});
+
+/* 4. Live Countdown Timer (Atur tanggal target di bawah ini) */
+(function(){
+  // Format: YYYY-MM-DDTHH:MM:SS+07:00 (Contoh: 27 November 2026 pukul 07.00 WIB)
+  var targetDate = new Date('2026-11-27T07:00:00+07:00').getTime();
+  function pad(n){ return n < 10 ? '0' + n : n; }
+  function updateCountdown(){
+    var now = Date.now();
+    var diff = targetDate - now;
+    if(diff <= 0){
+      document.getElementById('cd-d').textContent = '00';
+      document.getElementById('cd-h').textContent = '00';
+      document.getElementById('cd-m').textContent = '00';
+      document.getElementById('cd-s').textContent = '00';
+      return;
+    }
+    var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var m = Math.floor((diff / (1000 * 60)) % 60);
+    var s = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-d').textContent = pad(d);
+    document.getElementById('cd-h').textContent = pad(h);
+    document.getElementById('cd-m').textContent = pad(m);
+    document.getElementById('cd-s').textContent = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 })();
 
 function toast(t){var e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(function(){e.classList.remove('show')},1800)}
@@ -387,27 +683,52 @@ document.getElementById('copyBtn').addEventListener('click',function(){
   if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(no).then(ok,fb)}else{fb()}
 });
 
-/* Buka undangan + musik */
+/* 5. Rangkaian Animasi Intro Gunungan */
 var bgm=document.getElementById('bgm'), mbtn=document.getElementById('music');
 function setMusic(on){mbtn.classList.toggle('on',on)}
+
 document.getElementById('openBtn').addEventListener('click',function(){
-  document.getElementById('cover').classList.add('open');
-  document.body.classList.remove('locked');
-  window.scrollTo(0,0);
+  var coverFront = document.getElementById('cover-front');
+  var stage = document.getElementById('gunungan-stage');
+  var introWrap = document.getElementById('intro-wrapper');
+  var hero = document.getElementById('hero');
+
   mbtn.classList.add('show');
   var p=bgm.play(); if(p&&p.then){p.then(function(){setMusic(true)}).catch(function(){setMusic(false)})}
-  setTimeout(function(){document.getElementById('cover').style.display='none'},1900);
+
+  coverFront.classList.add('fade-out');
+  stage.classList.add('active');
+
+  setTimeout(function(){
+    stage.classList.add('split');
+  }, 1000);
+
+  setTimeout(function(){
+    stage.classList.add('zoom-in');
+  }, 2400);
+
+  setTimeout(function(){
+    stage.classList.add('fade-done');
+    hero.classList.add('entered');
+    document.body.classList.remove('locked');
+    window.scrollTo(0,0);
+  }, 3400);
+
+  setTimeout(function(){
+    introWrap.classList.add('done');
+  }, 4200);
 });
+
 mbtn.addEventListener('click',function(){
   if(bgm.paused){bgm.play().then(function(){setMusic(true)}).catch(function(){toast('File lagu.mp3 belum ada')})}
   else{bgm.pause();setMusic(false)}
 });
 
-/* Animasi muncul saat scroll */
+/* 6. Animasi muncul saat scroll */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
-/* Ucapan (disimpan di browser) */
+/* 7. Ucapan (disimpan di browser) */
 var KEY='ucapan-ferin-yeka', list=[];
 try{list=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
 function esc(s){return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
