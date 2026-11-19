@@ -370,7 +370,6 @@ p{font-size:1.16rem;line-height:1.72}
   overflow:hidden;
 }
 
-/* Awan Klasik Jawa Melayang di Belakang Foto */
 .java-cloud{
   position:absolute;width:165px;color:var(--gold);opacity:.24;pointer-events:none;z-index:1;
 }
@@ -393,7 +392,6 @@ p{font-size:1.16rem;line-height:1.72}
 
 .photo-stage{position:relative;display:inline-block;margin:28px auto 12px;z-index:3}
 
-/* Cakra Mandala Emas Berputar di Belakang Foto */
 .photo-mandala{
   position:absolute;left:50%;top:48%;width:385px;height:385px;
   transform:translate(-50%,-50%);
@@ -402,14 +400,12 @@ p{font-size:1.16rem;line-height:1.72}
   pointer-events:none;z-index:0;
 }
 
-/* Mahkota Ukiran Emas di Puncak Bingkai Foto */
 .photo-crown{
   position:absolute;top:-22px;left:50%;transform:translateX(-50%);
   width:78px;height:34px;color:var(--gold);z-index:5;
   filter:drop-shadow(0 3px 6px rgba(43,22,10,.25));
 }
 
-/* Sepasang Gunungan Wayang Mengapit Kiri & Kanan Bawah Foto */
 .twin-gunungan{
   position:absolute;bottom:-10px;width:108px;z-index:1;pointer-events:none;
   opacity:.88;filter:drop-shadow(0 8px 16px rgba(43,22,10,.26));
@@ -433,7 +429,6 @@ p{font-size:1.16rem;line-height:1.72}
   50%{transform:rotate(9deg) translateY(-5px)}
 }
 
-/* Bingkai Foto Mempelai dengan Ken Burns & Shimmer */
 .photo{
   width:min(74vw,285px);aspect-ratio:3/4;margin:0 auto;
   border-radius:200px 200px 22px 22px;overflow:hidden;position:relative;z-index:3;
@@ -454,7 +449,6 @@ p{font-size:1.16rem;line-height:1.72}
 .photo.empty .ph{display:flex}
 .photo.empty img{display:none}
 
-/* Susunan Nama Mempelai dengan Garis Ukel Emas */
 .couple-names-wrap{
   position:relative;z-index:4;
   display:flex;align-items:center;justify-content:center;gap:14px;
@@ -795,13 +789,11 @@ footer p{opacity:.92}
 
   <!-- MEMPELAI + EFEK LENGKAP TEMA JAWA -->
   <section id="couple" class="parallax-bg">
-    <!-- Ukiran Sudut Keraton -->
     <svg class="ukiran-corner tl" style="color:#996622;width:56px;height:56px" viewBox="0 0 60 60"><use href="#ukiran-svg"/></svg>
     <svg class="ukiran-corner tr" style="color:#996622;width:56px;height:56px" viewBox="0 0 60 60"><use href="#ukiran-svg"/></svg>
     <svg class="ukiran-corner bl" style="color:#996622;width:56px;height:56px" viewBox="0 0 60 60"><use href="#ukiran-svg"/></svg>
     <svg class="ukiran-corner br" style="color:#996622;width:56px;height:56px" viewBox="0 0 60 60"><use href="#ukiran-svg"/></svg>
 
-    <!-- Awan Klasik Jawa Melayang -->
     <svg class="java-cloud c-left" viewBox="0 0 130 50"><use href="#cloud-svg"/></svg>
     <svg class="java-cloud c-right" viewBox="0 0 130 50"><use href="#cloud-svg"/></svg>
 
@@ -809,10 +801,8 @@ footer p{opacity:.92}
     <h2 class="rv d1">Dua Hati, Satu Tujuan</h2>
 
     <div class="photo-stage rv d2">
-      <!-- Cakra Mandala Emas Berputar -->
       <svg class="photo-mandala" viewBox="0 0 200 200"><use href="#mandala-svg"/></svg>
 
-      <!-- Mahkota Ukiran Emas di Puncak Kubah -->
       <svg class="photo-crown" viewBox="0 0 80 36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
         <path d="M12 28 Q40 20 68 28"/>
         <path d="M22 25 C24 14 34 14 40 6 C46 14 56 14 58 25"/>
@@ -821,11 +811,9 @@ footer p{opacity:.92}
         <circle cx="56" cy="15" r="1.8" fill="currentColor"/>
       </svg>
 
-      <!-- Sepasang Gunungan Wayang Mengapit Kiri & Kanan -->
       <svg class="twin-gunungan left" viewBox="0 0 100 132"><use href="#mini-gunungan"/></svg>
       <svg class="twin-gunungan right" viewBox="0 0 100 132"><use href="#mini-gunungan"/></svg>
 
-      <!-- Bingkai Foto dengan Ken Burns & Kilau Emas -->
       <div class="photo shimmer" id="photoBox">
         <img src="foto.JPG" alt="Foto Ferin dan Yeka" onerror="this.parentNode.classList.add('empty')">
         <div class="ph">LETAKKAN FOTO<br>foto.JPG</div>
@@ -901,12 +889,51 @@ footer p{opacity:.92}
     </div>
   </section>
 
-  <!-- UCAPAN -->
+  <!-- UCAPAN (DENGAN DROPDOWN 35 NAMA TAMU) -->
   <section id="rsvp" class="batik-light parallax-bg">
     <div class="kicker rv">DOA &amp; UCAPAN</div>
     <h2 class="rv d1">Ucapan Selamat</h2>
     <form id="wishForm" class="rv d2">
-      <input id="wName" placeholder="Nama" required maxlength="40">
+      <select id="wSelect" required>
+        <option value="" disabled selected>Pilih Nama Anda</option>
+        <option value="Ainul">1. Ainul</option>
+        <option value="Isna">2. Isna</option>
+        <option value="Fanani">3. Fanani</option>
+        <option value="Kusuma Bagus">4. Kusuma Bagus</option>
+        <option value="Bambang">5. Bambang</option>
+        <option value="Rifai">6. Rifai</option>
+        <option value="Hakim">7. Hakim</option>
+        <option value="Fandi">8. Fandi</option>
+        <option value="Nurwansah">9. Nurwansah</option>
+        <option value="Fenly">10. Fenly</option>
+        <option value="Aswat">11. Aswat</option>
+        <option value="Didi">12. Didi</option>
+        <option value="Dodo">13. Dodo</option>
+        <option value="Galih">14. Galih</option>
+        <option value="Rahim">15. Rahim</option>
+        <option value="Fower">16. Fower</option>
+        <option value="Andi">17. Andi</option>
+        <option value="Irpan Bas">18. Irpan Bas</option>
+        <option value="Gus Malik">19. Gus Malik</option>
+        <option value="Guntur">20. Guntur</option>
+        <option value="Guril">21. Guril</option>
+        <option value="Deny">22. Deny</option>
+        <option value="Anos">23. Anos</option>
+        <option value="Bambang (2)">24. Bambang</option>
+        <option value="Alim">25. Alim</option>
+        <option value="Dimas">26. Dimas</option>
+        <option value="Hakim Nganjuk">27. Hakim Nganjuk</option>
+        <option value="Eko Afandi">28. Eko Afandi</option>
+        <option value="Mat Malang">29. Mat Malang</option>
+        <option value="Agung Boyolali">30. Agung Boyolali</option>
+        <option value="Renald">31. Renald</option>
+        <option value="Gerald">32. Gerald</option>
+        <option value="Lintang Semarang">33. Lintang Semarang</option>
+        <option value="Yose">34. Yose</option>
+        <option value="Putra Soim">35. Putra Soim</option>
+        <option value="__custom__">✏️ Tulis Nama Lainnya...</option>
+      </select>
+      <input id="wName" placeholder="Tulis nama Anda..." maxlength="40" style="display:none">
       <textarea id="wMsg" placeholder="Ucapan &amp; doa" required maxlength="300"></textarea>
       <select id="wAtt" required>
         <option value="" disabled selected>Konfirmasi Kehadiran</option>
@@ -943,11 +970,43 @@ footer p{opacity:.92}
 <div class="toast" id="toast"></div>
 
 <script>
-/* 1. Nama tamu dari link: ?to=Nama+Tamu */
+/* 1. Nama tamu dari link (?to=Nama+Tamu) & otomatis cocokkan dengan dropdown ucapan */
 (function(){
   var to = new URLSearchParams(location.search).get('to');
-  if(to) document.getElementById('guestName').textContent = to;
+  if(to){
+    document.getElementById('guestName').textContent = to;
+    var sel = document.getElementById('wSelect');
+    var customInp = document.getElementById('wName');
+    var found = false;
+    for(var i = 0; i < sel.options.length; i++){
+      if(sel.options[i].value.toLowerCase() === to.trim().toLowerCase()){
+        sel.selectedIndex = i;
+        found = true;
+        break;
+      }
+    }
+    if(!found){
+      sel.value = '__custom__';
+      customInp.style.display = 'block';
+      customInp.required = true;
+      customInp.value = to;
+    }
+  }
 })();
+
+/* Tampilkan kolom ketik nama jika memilih "Tulis Nama Lainnya..." */
+document.getElementById('wSelect').addEventListener('change', function(){
+  var customInp = document.getElementById('wName');
+  if(this.value === '__custom__'){
+    customInp.style.display = 'block';
+    customInp.required = true;
+    customInp.focus();
+  } else {
+    customInp.style.display = 'none';
+    customInp.required = false;
+    customInp.value = '';
+  }
+});
 
 /* 2. Generator Partikel Debu Emas & Bokeh Hangat */
 (function(){
@@ -1083,10 +1142,16 @@ function render(){
 render();
 document.getElementById('wishForm').addEventListener('submit',function(ev){
   ev.preventDefault();
-  list.unshift({n:wName.value.trim(),m:wMsg.value.trim(),a:wAtt.value});
+  var selVal = document.getElementById('wSelect').value;
+  var finalName = (selVal === '__custom__') ? document.getElementById('wName').value.trim() : selVal.replace(' (2)', '');
+  if(!finalName){ toast('Silakan pilih atau isi nama Anda'); return; }
+  list.unshift({n:finalName, m:wMsg.value.trim(), a:wAtt.value});
   try{localStorage.setItem(KEY,JSON.stringify(list.slice(0,50)))}catch(e){}
-  render(); ev.target.reset(); toast('Terima kasih atas ucapannya 🤍');
-});
+  render();
+  ev.target.reset();
+  document.getElementById('wName').style.display = 'none';
+  toast('Terima kasih atas ucapannya 🤍');
+}); ni
 </script>
 </body>
 </html>
